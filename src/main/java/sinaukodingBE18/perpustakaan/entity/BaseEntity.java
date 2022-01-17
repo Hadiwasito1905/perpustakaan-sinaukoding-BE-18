@@ -3,7 +3,6 @@ package sinaukodingBE18.perpustakaan.entity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
@@ -18,7 +17,7 @@ import java.util.Date;
 @SuppressWarnings("unchecked")
 
 
-public class BaseEntity<T> implements Serializable {
+public abstract class BaseEntity<T> implements Serializable {
 
 
     private static final long serialVersionUID = -7227301185975603965L;
@@ -36,10 +35,12 @@ public class BaseEntity<T> implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Date updatedTime;
 
+    @PrePersist
     protected void onCreate(){
         setCreatedTime(new Date());
     }
 
+    @PreUpdate
     protected void onUpdate(){
         setUpdatedTime(new Date());
     }
