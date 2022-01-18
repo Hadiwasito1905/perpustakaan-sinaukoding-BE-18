@@ -3,6 +3,7 @@ package sinaukodingBE18.perpustakaan.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCrypt;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import sinaukodingBE18.perpustakaan.common.RestResult;
 import sinaukodingBE18.perpustakaan.common.StatusCode;
@@ -12,6 +13,7 @@ import sinaukodingBE18.perpustakaan.entity.User;
 
 import java.util.ArrayList;
 
+@Service
 public class UserService extends BaseService<User> {
     @Autowired
     private UserDAO dao;
