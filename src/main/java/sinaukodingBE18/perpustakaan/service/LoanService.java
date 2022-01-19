@@ -26,7 +26,7 @@ public class LoanService extends BaseService<Loan> {
     @Transactional
     public Loan save(Loan entity){
         entity.setLoanDate(new Date());
-
+        entity.setUser(PerpustakaanApplication.getCurrentUser());
 
         return dao.save(entity);
     }
