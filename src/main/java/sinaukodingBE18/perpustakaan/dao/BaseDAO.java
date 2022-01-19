@@ -80,9 +80,9 @@ public abstract class BaseDAO<T extends BaseEntity<T>> {
     }
 
 
-    //Menghapus data
+    //Menghapus Data
     public T delete(T entity) {
-        if (entity != null && entity.getId() != null) {
+        if (entity != null && entity.getId()!= null) {
             T reference = findReference(entity.getId());
             if (reference != null) {
                 entityManager.remove(entity);
@@ -93,9 +93,9 @@ public abstract class BaseDAO<T extends BaseEntity<T>> {
 
     }
 
-
     public T findReference(Long id) {
         return (T) Hibernate.unproxy(entityManager.getReference(type, id));
+
     }
 
     public List<Predicate> predicates(T param, CriteriaBuilder builder, Root<T> root, boolean isCount){

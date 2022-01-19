@@ -13,13 +13,14 @@ import sinaukodingBE18.perpustakaan.service.BookService;
 import java.util.ArrayList;
 
 @RestController
-@RequestMapping("/books")
+@RequestMapping("books")
 @PreAuthorize("permitAll()")
 public class BookController extends BaseController {
 
     @Autowired
     private BookService service;
 
+    @PreAuthorize("permitAll()")
     @GetMapping
     public RestResult get(@RequestParam(value = "param", required = false) String param,
                           @RequestParam(value = "offset") int offset,
