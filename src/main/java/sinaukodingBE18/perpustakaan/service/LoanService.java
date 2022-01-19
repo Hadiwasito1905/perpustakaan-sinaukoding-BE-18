@@ -8,6 +8,8 @@ import sinaukodingBE18.perpustakaan.dao.BaseDAO;
 import sinaukodingBE18.perpustakaan.dao.LoanDAO;
 import sinaukodingBE18.perpustakaan.entity.Loan;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 
 
@@ -51,12 +53,12 @@ public class LoanService extends BaseService<Loan> {
          }
         return null;
     }
-//
-//    @Transactional
-//    public Collection<Loan> findByDate(Loan entity, Date startDate, Date endDate) {
-//        Collection<Loan> result = dao.findByDate(entity, startDate, endDate);
-//
-//        return result.size() > 0 ? result : new ArrayList<>();
-//    }
+
+    @Transactional
+    public Collection<Loan> findByDate(Loan entity, Date startDate, Date endDate) {
+        Collection<Loan> result = dao.findByDate(entity, startDate, endDate);
+
+        return result.size() > 0 ? result : new ArrayList<>();
+    }
 
 }
