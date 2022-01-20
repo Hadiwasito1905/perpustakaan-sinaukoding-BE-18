@@ -53,7 +53,7 @@ public abstract class BaseDAO<T extends BaseEntity<T>> {
         CriteriaQuery<Long> query = builder.createQuery(Long.class);
         Root<T> root =  query.from(type);
         query.select(builder.count(root));
-        return singleResult(query, predicates(param, builder, root, true));
+        return singleResult(query, predicates(param, builder, root, false));
     }
 
     //Save Entity
