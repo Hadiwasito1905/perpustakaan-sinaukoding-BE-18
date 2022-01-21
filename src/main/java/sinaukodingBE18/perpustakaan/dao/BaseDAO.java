@@ -68,7 +68,7 @@ public abstract class BaseDAO<T extends BaseEntity<T>> {
 
     //Update data yang sudah ada
     public T update(T entity) {
-        if((entity != null) && (entity.getId() != null)) {
+        if(entity != null && entity.getId() != null) {
             T reference = findReference(entity.getId());
             entity.setCreatedTime(reference.getCreatedTime());
             if (reference != null) {
