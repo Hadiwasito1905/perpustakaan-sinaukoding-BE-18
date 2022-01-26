@@ -1,8 +1,11 @@
 package sinaukodingBE18.perpustakaan.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -43,7 +46,9 @@ public class Loan extends BaseEntity<Loan> {
     @Enumerated(EnumType.STRING)
     private StatusLoan status = StatusLoan.BORROWED;
 
-    @OneToOne(fetch = FetchType.LAZY)
+//    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    @NotFound(action = NotFoundAction.IGNORE)
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "book_id")
     private Book book;
 
